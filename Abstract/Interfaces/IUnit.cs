@@ -20,5 +20,6 @@ namespace Battle_Clans.Abstract.Interfaces
         void Attack();
         void TakeDamage(int damage, IUnit attacker);
         void SetMediator(IBattleMediator mediator);
+        object Clone();
     }
 }

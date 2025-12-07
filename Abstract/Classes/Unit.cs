@@ -80,6 +80,11 @@ namespace Battle_Clans.Abstract.Classes
             OnPropertyChanged(nameof(Armor));
         }
 
+        public virtual object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)

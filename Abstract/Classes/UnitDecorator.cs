@@ -32,5 +32,11 @@ namespace Battle_Clans.Abstract.Classes
         public virtual void TakeDamage(int damage, IUnit attacker) => _wrappedUnit.TakeDamage(damage, attacker);
         public virtual ITargetingService TargetingService => _wrappedUnit.TargetingService;
         public virtual string DecoratorName => "";
+        public object Clone()
+        {
+            var clone = (UnitDecorator)this.MemberwiseClone();
+            clone._wrappedUnit = (IUnit)_wrappedUnit.Clone();
+            return clone;
+        }
     }
 }

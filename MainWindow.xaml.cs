@@ -1,6 +1,7 @@
 ﻿using Battle_Clans.Abstract.Interfaces;
 using Battle_Clans.Enums;
 using Battle_Clans.Model.Pattern.Factory;
+using Battle_Clans.Model.Pattern.Memento;
 using Battle_Clans.Model.Pattern.Singleton;
 using Battle_Clans.Windows;    
 using System.Windows;
@@ -10,6 +11,7 @@ namespace Battle_Clans
 {
     public partial class MainWindow : Window
     {
+        private SaveManager _saveManager = new SaveManager();
         private ILeaderFactory _leaderFactory = new DefaultLeaderFactory();
         public MainWindow()
         {
@@ -74,6 +76,23 @@ namespace Battle_Clans
         {
             GameSession.Instance.CurrentLevel++;
             LoadBattlePage();
+        }
+
+        private void OnSaveClick(object sender, RoutedEventArgs e)
+        {
+            _saveManager.QuickSave();
+            MessageBox.Show("Гру збережено!");
+        }
+
+        private void OnLoadClick(object sender, RoutedEventArgs e)
+        {
+            if (_saveManager.HasSaves)
+            {
+                _saveManager.QuickLoad();
+
+                LoadShopPage();
+                MessageBox.Show("Гру завантажено!");
+            }
         }
     }
 }

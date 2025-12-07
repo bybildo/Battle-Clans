@@ -1,4 +1,5 @@
 ﻿using Battle_Clans.Abstract.Interfaces;
+using Battle_Clans.Model.Pattern.Memento;
 
 namespace Battle_Clans.Model.Pattern.Singleton
 {
@@ -32,6 +33,26 @@ namespace Battle_Clans.Model.Pattern.Singleton
         public void AddGold(int amount)
         {
             Gold += amount;
+        }
+
+        public GameMemento SaveState()
+        {
+            return new GameMemento(Gold, CurrentLevel, Army, LeaderAbility);
+        }
+
+        public void LoadState(GameMemento memento)
+        {
+            if (memento == null) return;
+
+            this.Gold = memento.Gold;
+            this.CurrentLevel = memento.CurrentLevel;
+            this.LeaderAbility = memento.LeaderAbility;
+
+            this.Army = new List<IUnit>();
+            foreach (var unit in memento.ArmySnapshot)
+            {
+                this.Army.Add((IUnit)unit.Clone());
+            }
         }
     }
 }
