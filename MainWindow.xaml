@@ -1,0 +1,75 @@
+﻿<Window x:Class="Battle_Clans.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Battle_Clans"
+        mc:Ignorable="d"
+        Title="Battle Clans" Height="800" Width="1400" WindowStartupLocation="CenterScreen"
+        Background="#F0F0F0">
+
+    <Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+
+        <StackPanel x:Name="MenuPanel" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <TextBlock Text="BATTLE CLANS" FontSize="50" FontWeight="Heavy" 
+                       HorizontalAlignment="Center" Margin="0,0,0,10" Foreground="#333"/>
+
+            <TextBlock Text="ОБЕРІТЬ ВАШОГО ЛІДЕРА" FontSize="20" FontWeight="SemiBold" 
+                       HorizontalAlignment="Center" Margin="0,0,0,40" Foreground="#666"/>
+
+            <UniformGrid Rows="1" Columns="4" Width="1000" HorizontalAlignment="Center">
+
+                <Border Background="White" Margin="10" CornerRadius="10" Padding="15" Effect="{DynamicResource ShadowEffect}">
+                    <StackPanel>
+                        <Rectangle Height="120" Width="120" Fill="#FF5252" Margin="0,0,0,15" RadiusX="10" RadiusY="10"/>
+                        <TextBlock Text="WARLORD" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,15"/>
+                        <TextBlock Text="Сила та Лють" FontSize="14" Foreground="Gray" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                        <Button Content="ОБРАТИ" Tag="Warlord"
+                                Background="#D32F2F" Foreground="White" FontWeight="Bold" Height="40"
+                                Click="OnLeaderSelected"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="White" Margin="10" CornerRadius="10" Padding="15">
+                    <StackPanel>
+                        <Rectangle Height="120" Width="120" Fill="#7C4DFF" Margin="0,0,0,15" RadiusX="10" RadiusY="10"/>
+                        <TextBlock Text="MAGE" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,15"/>
+                        <TextBlock Text="Магія та Мудрість" FontSize="14" Foreground="Gray" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                        <Button Content="ОБРАТИ" Tag="Mage"
+                                Background="#512DA8" Foreground="White" FontWeight="Bold" Height="40"
+                                Click="OnLeaderSelected"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="White" Margin="10" CornerRadius="10" Padding="15">
+                    <StackPanel>
+                        <Rectangle Height="120" Width="120" Fill="#FFD740" Margin="0,0,0,15" RadiusX="10" RadiusY="10"/>
+                        <TextBlock Text="ELF" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,15"/>
+                        <TextBlock Text="Швидкість та Хитрість" FontSize="14" Foreground="Gray" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                        <Button Content="ОБРАТИ" Tag="Strateg"
+                                Background="#FFA000" Foreground="White" FontWeight="Bold" Height="40"
+                                Click="OnLeaderSelected"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="White" Margin="10" CornerRadius="10" Padding="15">
+                    <StackPanel>
+                        <Rectangle Height="120" Width="120" Fill="#448AFF" Margin="0,0,0,15" RadiusX="10" RadiusY="10"/>
+                        <TextBlock Text="Knight" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,15"/>
+                        <TextBlock Text="Захист та Честь" FontSize="14" Foreground="Gray" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                        <Button Content="ОБРАТИ" Tag="Defender"
+                                Background="#1976D2" Foreground="White" FontWeight="Bold" Height="40"
+                                Click="OnLeaderSelected"/>
+                    </StackPanel>
+                </Border>
+
+            </UniformGrid>
+        </StackPanel>
+    </Grid>
+</Window>
